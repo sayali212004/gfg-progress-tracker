@@ -7,6 +7,7 @@ on:
 
 jobs:
   update-progress:
+    name: GFG Updater  ✨
     runs-on: ubuntu-latest
 
     steps:
