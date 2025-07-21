@@ -1,1 +1,34 @@
+name: Update GFG Progress
+
+on:
+  schedule:
+    - cron: "0 0 * * *"  # Runs daily at 00:00 UTC (5:30 AM IST)
+  workflow_dispatch:
+
+jobs:
+  update-progress:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install requests
+        run: pip install requests
+
+      - name: Run GFG Scraper and update progress
+        run: python main.py
+
+      - name: Commit and Push changes if any
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add gfg-progress.md
+          git diff --quiet && echo "No changes to commit" || git commit -m "Update GFG progress [skip ci]"
+          git push
 
