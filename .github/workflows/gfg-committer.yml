@@ -2,8 +2,9 @@ name: Update GFG Progress
 
 on:
   schedule:
-    - cron: "0 0 * * *"  # Runs daily at 00:00 UTC (5:30 AM IST)
-  workflow_dispatch:
+    - cron: '0 6 * * *'  # runs daily at 6 AM IST
+  workflow_dispatch:      # allows manual run
+  push:   
 
 jobs:
   update-progress:
