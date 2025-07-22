@@ -1,0 +1,18 @@
+class Solution {
+    public boolean isLengthEven(Node head) {
+        // code here
+        Node current = head;
+        int count=0;
+        while(current!=null)
+        {
+            count++;
+            current=current.next;
+        }
+        
+        if(count%2==0)
+        {
+            return true;
+        }
+        return false;
+    }
+}
