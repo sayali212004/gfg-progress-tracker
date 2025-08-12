@@ -1,24 +1,21 @@
-
-
-// User function Template for Java
-
 class Solution {
     void pushZerosToEnd(int[] arr) {
-        // code here
-        int ptr=0;
-        for(int i=0;i<arr.length;i++)
+        int n = arr.length;
+        int j=0;
+        
+        for(int i=0;i<n;i++)
         {
             if(arr[i]!=0)
             {
-                arr[ptr++]=arr[i];
+                arr[j]=arr[i];
+                j++;
             }
-            
         }
         
-        while(ptr<arr.length)
+        while(j<arr.length)
         {
-            arr[ptr++]=0;
+            arr[j]=0;
+            j++;
         }
-        //return arr;
     }
 }
